@@ -18,21 +18,21 @@ PREFETCH_UNTIL = 2035
 OUT_DIR = "dinigunler"
 INDEX_PATH = os.path.join(OUT_DIR, "index.json")
 
-UA = "Mozilla/5.0 (compatible; dinigunler_diyanet_json/1.0)"
+UA = "Mozilla/5.0 (compatible; dinigunler_diyanet_json/1.1)"
 
 MONTHS_TR = {
     "ocak": 1,
-    "şubat": 2, "subat": 2,
+    "subat": 2, "şubat": 2,
     "mart": 3,
     "nisan": 4,
-    "mayıs": 5, "mayis": 5,
+    "mayis": 5, "mayıs": 5,
     "haziran": 6,
     "temmuz": 7,
-    "ağustos": 8, "agustos": 8,
-    "eylül": 9, "eylul": 9,
+    "agustos": 8, "ağustos": 8,
+    "eylul": 9, "eylül": 9,
     "ekim": 10,
-    "kasım": 11, "kasim": 11,
-    "aralık": 12, "aralik": 12,
+    "kasim": 11, "kasım": 11,
+    "aralik": 12, "aralık": 12,
 }
 
 def utc_now_iso():
@@ -48,12 +48,17 @@ def save_json(path: str, obj):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
 
+def norm_tr(s: str) -> str:
+    # robustes Normalisieren für türkische I/İ/ı und Sonderzeichen
+    s = s.strip()
+    s = s.replace("İ", "I").replace("ı", "i")
+    s = s.lower()
+    return s
+
 def discover_year_links(html: str) -> dict[int, str]:
     """
-    Liest aus dem Menü alle Links der Form:
-      - dinigunler.php?yil=2026
-      - icerik.php?icerik=154 (Text enthält z.B. '2027 Yılı Dini Günler')
-    Map: Jahr -> absolute URL
+    Liest aus dem Menü alle Links, die auf '... Yılı Dini Günler' zeigen
+    und mappt: Jahr -> absolute URL.
     """
     soup = BeautifulSoup(html, "html.parser")
     year_to_url: dict[int, str] = {}
@@ -61,46 +66,74 @@ def discover_year_links(html: str) -> dict[int, str]:
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
         text = " ".join(a.get_text(" ", strip=True).split())
+        t = norm_tr(text)
 
-        year = None
-
-        # Muster 1: ?yil=YYYY
-        m1 = re.search(r"(?:^|[?&])yil=(\d{4})", href)
-        if m1:
-            year = int(m1.group(1))
-        else:
-            # Muster 2: Jahr im Linktext, wenn es um Dini Günler geht
-            m2 = re.search(r"\b(20\d{2})\b", text)
-            if m2 and ("dini" in text.lower() and ("günler" in text.lower() or "gunler" in text.lower())):
-                year = int(m2.group(1))
-
-        if year is None:
+        # nur Links, die wirklich Dini Günler meinen
+        if not ("dini" in t and ("gun" in t or "gün" in t)):
             continue
+
+        m = re.search(r"\b(20\d{2})\b", text)
+        if not m:
+            continue
+
+        year = int(m.group(1))
         if year < MIN_YEAR or year > PREFETCH_UNTIL:
             continue
 
-        abs_url = urljoin(BASE_URL, href)
-        year_to_url[year] = abs_url
+        year_to_url[year] = urljoin(BASE_URL, href)
 
     return year_to_url
 
 def pick_best_table(soup: BeautifulSoup):
     """
-    Diyanet-Seite hat i.d.R. eine Tabelle mit Spalten u.a. 'MİLADİ' und 'DİNİ GÜNLER'.
-    Wir suchen die Tabelle, die diese Header enthält.
+    Nimmt die Tabelle, deren Header 'MILADI' und 'DINI GUNLER' enthält.
+    Fallback: erste Tabelle.
     """
-    for table in soup.find_all("table"):
-        headers = " ".join(table.get_text(" ", strip=True).split()).lower()
-        if ("miladi" in headers or "m\u0131ladi" in headers) and ("dini" in headers) and ("gün" in headers or "gun" in headers):
+    tables = soup.find_all("table")
+    if not tables:
+        return None
+
+    for table in tables:
+        header_text = norm_tr(" ".join(table.get_text(" ", strip=True).split()))
+        if ("miladi" in header_text or "miladi" in header_text) and ("dini" in header_text) and ("gun" in header_text or "gün" in header_text):
             return table
-    # fallback: erste Tabelle
-    return soup.find("table")
+
+    return tables[0]
+
+def extract_iso_date_from_row(year: int, row_text: str) -> str | None:
+    """
+    Diyanet kann Datum so liefern:
+      02-OCAK-2026
+    oder so:
+      02 OCAK 2026
+    Wir akzeptieren beides.
+    """
+    # Format: DD-AY-YYYY (mit - oder / oder .)
+    m = re.search(r"\b(\d{1,2})\s*[-/\.]\s*([A-Za-zÇĞİÖŞÜçğıöşü]+)\s*[-/\.]\s*(\d{4})\b", row_text)
+    if not m:
+        # Format: DD AY YYYY (mit spaces)
+        m = re.search(r"\b(\d{1,2})\s+([A-Za-zÇĞİÖŞÜçğıöşü]+)\s+(\d{4})\b", row_text)
+    if not m:
+        return None
+
+    day = int(m.group(1))
+    mon_raw = m.group(2)
+    year_found = int(m.group(3))
+    if year_found != year:
+        return None
+
+    mon_key = norm_tr(mon_raw).replace("ı", "i")
+    mon = MONTHS_TR.get(mon_key)
+    if not mon:
+        return None
+
+    return f"{year:04d}-{mon:02d}-{day:02d}"
 
 def parse_year_page(year: int, html: str) -> list[dict]:
     """
-    Parst die Jahres-Tabelle und erzeugt:
+    Parst die Diyanet-Tabelle und erzeugt:
       [{"date":"YYYY-MM-DD","title_tr":"..."}]
-    Leere/Platzhalter-Zeilen werden verworfen.
+    Entfernt Leerzeilen/Platzhalter.
     """
     soup = BeautifulSoup(html, "html.parser")
     table = pick_best_table(soup)
@@ -113,39 +146,19 @@ def parse_year_page(year: int, html: str) -> list[dict]:
         if len(cols) < 2:
             continue
 
-        joined = " | ".join(cols)
-
-        # Titel: meist letzte Spalte (Dini Günler)
-        title = cols[-1].strip()
-
-        # Header/Platzhalter/Leer raus
+        title = (cols[-1] or "").strip()
         if not title:
             continue
-        if title.lower() in {"dini günler", "dini gunler"}:
+        tl = norm_tr(title)
+        if tl in {"dini gunler", "dini günler"}:
             continue
         if re.fullmatch(r"[\.\-–—\s]+", title):
             continue
 
-        # Datum: "DD <MONAT> YYYY"
-        dm = re.search(
-            r"\b(\d{1,2})\s+([A-Za-zÇĞİÖŞÜçğıöşü]+)\s+(\d{4})\b",
-            joined
-        )
-        if not dm:
+        joined = " | ".join(cols)
+        iso = extract_iso_date_from_row(year, joined)
+        if not iso:
             continue
-
-        day = int(dm.group(1))
-        mon_name_raw = dm.group(2).lower()
-        year_found = int(dm.group(3))
-        if year_found != year:
-            continue
-
-        mon_key = mon_name_raw.replace("ı", "i")
-        mon = MONTHS_TR.get(mon_key) or MONTHS_TR.get(mon_name_raw)
-        if not mon:
-            continue
-
-        iso = f"{year:04d}-{mon:02d}-{day:02d}"
 
         events.append({"date": iso, "title_tr": title})
 
@@ -153,14 +166,11 @@ def parse_year_page(year: int, html: str) -> list[dict]:
     uniq = {}
     for e in events:
         uniq[(e["date"], e["title_tr"])] = e
-    events = list(uniq.values())
-    events.sort(key=lambda x: (x["date"], x["title_tr"]))
-    return events
+    out = list(uniq.values())
+    out.sort(key=lambda x: (x["date"], x["title_tr"]))
+    return out
 
 def delete_past_year_files(current_year: int):
-    """
-    Löscht alle Jahresdateien < current_year (abgelaufene Jahre).
-    """
     if not os.path.isdir(OUT_DIR):
         return
     for fn in os.listdir(OUT_DIR):
@@ -180,10 +190,9 @@ def main():
     discovery_html = http_get(DISCOVERY_URL)
     year_links = discover_year_links(discovery_html)
 
-    # Zieljahre: von max(current_year, MIN_YEAR) bis PREFETCH_UNTIL
+    # Zieljahre: aktuelles Jahr bis PREFETCH_UNTIL, aber nur wenn Diyanet-Link existiert
     target_years = [y for y in range(current_year, PREFETCH_UNTIL + 1) if y in year_links]
 
-    # abgelaufene Jahre löschen
     delete_past_year_files(current_year)
 
     years_written = []
@@ -191,12 +200,16 @@ def main():
         url = year_links[y]
         html = http_get(url)
         events = parse_year_page(y, html)
+
+        print(f"year={y} url={url} events={len(events)}")
+
         if not events:
             continue
+
         save_json(os.path.join(OUT_DIR, f"{y}.json"), events)
         years_written.append(y)
 
-    # years_available aus Dateien neu aufbauen
+    # years_available aus Dateien aufbauen
     years_available = []
     for fn in os.listdir(OUT_DIR):
         m = re.fullmatch(r"(\d{4})\.json", fn)
@@ -215,6 +228,7 @@ def main():
 
     print("discovered_years:", sorted(year_links.keys()))
     print("target_years:", target_years)
+    print("years_written:", years_written)
     print("years_available:", years_available)
     print("done:", utc_now_iso())
 
