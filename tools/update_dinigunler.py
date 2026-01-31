@@ -1,34 +1,24 @@
-"""
-Dieses Script:
-- liest die Diyanet-Webseite
-- findet automatisch alle verfügbaren Jahre (über das Menü)
-- erstellt für jedes Jahr eine JSON-Datei
-- speichert die Dateien im Ordner /dinigunler
+# pip install -r tools/requirements.txt
 
-Noch KEIN Automatismus – das kommt später.
-"""
+import os
+import re
+import json
+from datetime import datetime, timezone
+from urllib.parse import urljoin
 
 import requests
-import json
-import re
 from bs4 import BeautifulSoup
-from datetime import datetime
-
-# ===============================
-# Grundeinstellungen
-# ===============================
 
 BASE_URL = "https://vakithesaplama.diyanet.gov.tr/"
-START_URL = BASE_URL + "dinigunler.php?yil=2026"
+DISCOVERY_URL = urljoin(BASE_URL, "dinigunler.php?yil=2026")
 
 MIN_YEAR = 2026
-MAX_YEAR = 2035
+PREFETCH_UNTIL = 2035
 
-OUTPUT_DIR = "dinigunler"
+OUT_DIR = "dinigunler"
+INDEX_PATH = os.path.join(OUT_DIR, "index.json")
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (AzanUhrDiniGunlerBot)"
-}
+UA = "Mozilla/5.0 (compatible; dinigunler_diyanet_json/1.0)"
 
 MONTHS_TR = {
     "ocak": 1,
@@ -45,124 +35,188 @@ MONTHS_TR = {
     "aralık": 12, "aralik": 12,
 }
 
-# ===============================
-# Hilfsfunktionen
-# ===============================
+def utc_now_iso():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-def fetch(url):
-    print("Lade:", url)
-    r = requests.get(url, headers=HEADERS, timeout=30)
+def http_get(url: str) -> str:
+    r = requests.get(url, headers={"User-Agent": UA}, timeout=30)
     r.raise_for_status()
     return r.text
 
-def discover_year_links(html):
+def save_json(path: str, obj):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
+
+def discover_year_links(html: str) -> dict[int, str]:
     """
-    Sucht im Menü nach:
-    - 2026 Yılı Dini Günler
-    - icerik.php?icerik=XXX
+    Liest aus dem Menü alle Links der Form:
+      - dinigunler.php?yil=2026
+      - icerik.php?icerik=154 (Text enthält z.B. '2027 Yılı Dini Günler')
+    Map: Jahr -> absolute URL
     """
     soup = BeautifulSoup(html, "html.parser")
-    year_links = {}
+    year_to_url: dict[int, str] = {}
 
     for a in soup.find_all("a", href=True):
-        text = a.get_text(strip=True)
-        href = a["href"]
+        href = a["href"].strip()
+        text = " ".join(a.get_text(" ", strip=True).split())
 
-        m = re.search(r"(20\d{2})", text)
-        if not m:
+        year = None
+
+        # Muster 1: ?yil=YYYY
+        m1 = re.search(r"(?:^|[?&])yil=(\d{4})", href)
+        if m1:
+            year = int(m1.group(1))
+        else:
+            # Muster 2: Jahr im Linktext, wenn es um Dini Günler geht
+            m2 = re.search(r"\b(20\d{2})\b", text)
+            if m2 and ("dini" in text.lower() and ("günler" in text.lower() or "gunler" in text.lower())):
+                year = int(m2.group(1))
+
+        if year is None:
+            continue
+        if year < MIN_YEAR or year > PREFETCH_UNTIL:
             continue
 
-        year = int(m.group(1))
-        if year < MIN_YEAR or year > MAX_YEAR:
-            continue
+        abs_url = urljoin(BASE_URL, href)
+        year_to_url[year] = abs_url
 
-        full_url = BASE_URL + href.lstrip("/")
-        year_links[year] = full_url
+    return year_to_url
 
-    return year_links
-
-def parse_year_page(year, html):
+def pick_best_table(soup: BeautifulSoup):
     """
-    Liest die Tabelle eines Jahres aus
-    und erzeugt:
-    { "date": "YYYY-MM-DD", "title_tr": "..." }
+    Diyanet-Seite hat i.d.R. eine Tabelle mit Spalten u.a. 'MİLADİ' und 'DİNİ GÜNLER'.
+    Wir suchen die Tabelle, die diese Header enthält.
+    """
+    for table in soup.find_all("table"):
+        headers = " ".join(table.get_text(" ", strip=True).split()).lower()
+        if ("miladi" in headers or "m\u0131ladi" in headers) and ("dini" in headers) and ("gün" in headers or "gun" in headers):
+            return table
+    # fallback: erste Tabelle
+    return soup.find("table")
+
+def parse_year_page(year: int, html: str) -> list[dict]:
+    """
+    Parst die Jahres-Tabelle und erzeugt:
+      [{"date":"YYYY-MM-DD","title_tr":"..."}]
+    Leere/Platzhalter-Zeilen werden verworfen.
     """
     soup = BeautifulSoup(html, "html.parser")
-    table = soup.find("table")
+    table = pick_best_table(soup)
     if not table:
         return []
 
     events = []
-
-    for row in table.find_all("tr"):
-        text = row.get_text(" ", strip=True)
-
-        m = re.search(
-            r"(\d{1,2})\s+([A-Za-zÇĞİÖŞÜçğıöşü]+)\s+(\d{4})",
-            text
-        )
-        if not m:
+    for tr in table.find_all("tr"):
+        cols = [" ".join(td.get_text(" ", strip=True).split()) for td in tr.find_all(["td", "th"])]
+        if len(cols) < 2:
             continue
 
-        day = int(m.group(1))
-        month_name = m.group(2).lower().replace("ı", "i")
-        year_found = int(m.group(3))
+        joined = " | ".join(cols)
 
+        # Titel: meist letzte Spalte (Dini Günler)
+        title = cols[-1].strip()
+
+        # Header/Platzhalter/Leer raus
+        if not title:
+            continue
+        if title.lower() in {"dini günler", "dini gunler"}:
+            continue
+        if re.fullmatch(r"[\.\-–—\s]+", title):
+            continue
+
+        # Datum: "DD <MONAT> YYYY"
+        dm = re.search(
+            r"\b(\d{1,2})\s+([A-Za-zÇĞİÖŞÜçğıöşü]+)\s+(\d{4})\b",
+            joined
+        )
+        if not dm:
+            continue
+
+        day = int(dm.group(1))
+        mon_name_raw = dm.group(2).lower()
+        year_found = int(dm.group(3))
         if year_found != year:
             continue
 
-        month = MONTHS_TR.get(month_name)
-        if not month:
+        mon_key = mon_name_raw.replace("ı", "i")
+        mon = MONTHS_TR.get(mon_key) or MONTHS_TR.get(mon_name_raw)
+        if not mon:
             continue
 
-        date_iso = f"{year}-{month:02d}-{day:02d}"
+        iso = f"{year:04d}-{mon:02d}-{day:02d}"
 
-        parts = text.split()
-        title = " ".join(parts[-4:])  # grobe Näherung, reicht für Diyanet
+        events.append({"date": iso, "title_tr": title})
 
-        events.append({
-            "date": date_iso,
-            "title_tr": title
-        })
-
+    # Duplikate entfernen
+    uniq = {}
+    for e in events:
+        uniq[(e["date"], e["title_tr"])] = e
+    events = list(uniq.values())
+    events.sort(key=lambda x: (x["date"], x["title_tr"]))
     return events
 
-# ===============================
-# Hauptprogramm
-# ===============================
+def delete_past_year_files(current_year: int):
+    """
+    Löscht alle Jahresdateien < current_year (abgelaufene Jahre).
+    """
+    if not os.path.isdir(OUT_DIR):
+        return
+    for fn in os.listdir(OUT_DIR):
+        m = re.fullmatch(r"(\d{4})\.json", fn)
+        if not m:
+            continue
+        y = int(m.group(1))
+        if y < current_year:
+            os.remove(os.path.join(OUT_DIR, fn))
 
 def main():
-    start_html = fetch(START_URL)
-    year_links = discover_year_links(start_html)
+    os.makedirs(OUT_DIR, exist_ok=True)
 
-    all_years = {}
+    now_year = datetime.now(timezone.utc).year
+    current_year = max(now_year, MIN_YEAR)
 
-    for year, url in year_links.items():
-        html = fetch(url)
-        events = parse_year_page(year, html)
-        if events:
-            all_years[year] = events
+    discovery_html = http_get(DISCOVERY_URL)
+    year_links = discover_year_links(discovery_html)
 
-    # Dateien schreiben
-    for year, events in all_years.items():
-        path = f"{OUTPUT_DIR}/{year}.json"
-        print("Schreibe:", path)
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(events, f, ensure_ascii=False, indent=2)
+    # Zieljahre: von max(current_year, MIN_YEAR) bis PREFETCH_UNTIL
+    target_years = [y for y in range(current_year, PREFETCH_UNTIL + 1) if y in year_links]
 
-    # index.json aktualisieren
+    # abgelaufene Jahre löschen
+    delete_past_year_files(current_year)
+
+    years_written = []
+    for y in target_years:
+        url = year_links[y]
+        html = http_get(url)
+        events = parse_year_page(y, html)
+        if not events:
+            continue
+        save_json(os.path.join(OUT_DIR, f"{y}.json"), events)
+        years_written.append(y)
+
+    # years_available aus Dateien neu aufbauen
+    years_available = []
+    for fn in os.listdir(OUT_DIR):
+        m = re.fullmatch(r"(\d{4})\.json", fn)
+        if m:
+            years_available.append(int(m.group(1)))
+    years_available = sorted(set(years_available))
+
     index = {
         "schema": 1,
         "min_year": MIN_YEAR,
-        "prefetch_until": MAX_YEAR,
-        "years_available": sorted(all_years.keys()),
-        "last_updated_utc": datetime.utcnow().isoformat() + "Z"
+        "prefetch_until": PREFETCH_UNTIL,
+        "years_available": years_available,
+        "last_updated_utc": utc_now_iso()
     }
+    save_json(INDEX_PATH, index)
 
-    with open(f"{OUTPUT_DIR}/index.json", "w", encoding="utf-8") as f:
-        json.dump(index, f, ensure_ascii=False, indent=2)
-
-    print("Fertig.")
+    print("discovered_years:", sorted(year_links.keys()))
+    print("target_years:", target_years)
+    print("years_available:", years_available)
+    print("done:", utc_now_iso())
 
 if __name__ == "__main__":
     main()
