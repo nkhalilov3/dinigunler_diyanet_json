@@ -1,78 +1,97 @@
 [
   {
-    "date": "2027-01-04",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "02-12-2027",
+    "name_tr": "REGAİB KANDİLİ",
+    "name_de": "Regaib-Nacht"
   },
   {
-    "date": "2027-01-22",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "04-01-2027",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2027-02-08",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "05-03-2027",
+    "name_tr": "KADİR GECESİ",
+    "name_de": "Nacht der Bestimmung (Lailat al-Qadr)"
   },
   {
-    "date": "2027-03-05",
-    "name_tr": "KADİR GECESİ"
+    "date": "06-06-2027",
+    "name_tr": "HİCRİ YILBAŞI",
+    "name_de": "Islamisches Neujahr (Hidschri-Neujahr)"
   },
   {
-    "date": "2027-03-08",
-    "name_tr": "AREFE"
+    "date": "08-02-2027",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2027-03-09",
-    "name_tr": "RAMAZAN BAYRAMI (1. Gün)"
+    "date": "08-03-2027",
+    "name_tr": "AREFE",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2027-03-10",
-    "name_tr": "RAMAZAN BAYRAMI (2. Gün)"
+    "date": "09-03-2027",
+    "name_tr": "RAMAZAN BAYRAMI (1. Gün)",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2027-03-11",
-    "name_tr": "RAMAZAN BAYRAMI (3. Gün)"
+    "date": "10-03-2027",
+    "name_tr": "RAMAZAN BAYRAMI (2. Gün)",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2027-05-15",
-    "name_tr": "AREFE"
+    "date": "11-03-2027",
+    "name_tr": "RAMAZAN BAYRAMI (3. Gün)",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2027-05-16",
-    "name_tr": "KURBAN BAYRAMI (1. Gün)"
+    "date": "13-08-2027",
+    "name_tr": "MEVLİD KANDİLİ",
+    "name_de": "Mawlid (Geburt des Propheten)"
   },
   {
-    "date": "2027-05-17",
-    "name_tr": "KURBAN BAYRAMI (2. Gün)"
+    "date": "15-05-2027",
+    "name_tr": "AREFE",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2027-05-18",
-    "name_tr": "KURBAN BAYRAMI (3. Gün)"
+    "date": "15-06-2027",
+    "name_tr": "AŞURE GÜNÜ",
+    "name_de": "Aschura-Tag"
   },
   {
-    "date": "2027-05-19",
-    "name_tr": "KURBAN BAYRAMI (4. Gün)"
+    "date": "16-05-2027",
+    "name_tr": "KURBAN BAYRAMI (1. Gün)",
+    "name_de": "Opferfest 1. Tag"
   },
   {
-    "date": "2027-06-06",
-    "name_tr": "HİCRİ YILBAŞI"
+    "date": "17-05-2027",
+    "name_tr": "KURBAN BAYRAMI (2. Gün)",
+    "name_de": "Opferfest 2. Tag"
   },
   {
-    "date": "2027-06-15",
-    "name_tr": "AŞURE GÜNÜ"
+    "date": "18-05-2027",
+    "name_tr": "KURBAN BAYRAMI (3. Gün)",
+    "name_de": "Opferfest 3. Tag"
   },
   {
-    "date": "2027-08-13",
-    "name_tr": "MEVLİD KANDİLİ"
+    "date": "19-05-2027",
+    "name_tr": "KURBAN BAYRAMI (4. Gün)",
+    "name_de": "Opferfest 4. Tag"
   },
   {
-    "date": "2027-11-29",
-    "name_tr": "ÜÇ AYLARIN BAŞLANGICI"
+    "date": "22-01-2027",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   },
   {
-    "date": "2027-12-02",
-    "name_tr": "REGAİB KANDİLİ"
+    "date": "24-12-2027",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2027-12-24",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "29-11-2027",
+    "name_tr": "ÜÇ AYLARIN BAŞLANGICI",
+    "name_de": "Beginn der drei heiligen Monate"
   }
 ]

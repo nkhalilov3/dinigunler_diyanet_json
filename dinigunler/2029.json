@@ -1,74 +1,92 @@
 [
   {
-    "date": "2029-01-16",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "02-12-2029",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2029-02-10",
-    "name_tr": "KADİR GECESİ"
+    "date": "07-11-2029",
+    "name_tr": "ÜÇ AYLARIN BAŞLANGICI",
+    "name_de": "Beginn der drei heiligen Monate"
   },
   {
-    "date": "2029-02-13",
-    "name_tr": "RAMAZAN BAY. AREFESİ"
+    "date": "08-11-2029",
+    "name_tr": "REGAİB KANDİLİ",
+    "name_de": "Regaib-Nacht"
   },
   {
-    "date": "2029-02-14",
-    "name_tr": "RAMAZAN BAYRAMI 1. Gün"
+    "date": "10-02-2029",
+    "name_tr": "KADİR GECESİ",
+    "name_de": "Nacht der Bestimmung (Lailat al-Qadr)"
   },
   {
-    "date": "2029-02-15",
-    "name_tr": "RAMAZAN BAYRAMI 2. Gün"
+    "date": "13-02-2029",
+    "name_tr": "RAMAZAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2029-02-16",
-    "name_tr": "RAMAZAN BAYRAMI 3. Gün"
+    "date": "14-02-2029",
+    "name_tr": "RAMAZAN BAYRAMI 1. Gün",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2029-04-23",
-    "name_tr": "KURBAN BAY. AREFESİ"
+    "date": "14-05-2029",
+    "name_tr": "HİCRİ YILBAŞI",
+    "name_de": "Islamisches Neujahr (Hidschri-Neujahr)"
   },
   {
-    "date": "2029-04-24",
-    "name_tr": "KURBAN BAYRAMI 1. Gün"
+    "date": "15-02-2029",
+    "name_tr": "RAMAZAN BAYRAMI 2. Gün",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2029-04-25",
-    "name_tr": "KURBAN BAYRAMI 2. Gün"
+    "date": "16-01-2029",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2029-04-26",
-    "name_tr": "KURBAN BAYRAMI 3. Gün"
+    "date": "16-02-2029",
+    "name_tr": "RAMAZAN BAYRAMI 3. Gün",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2029-04-27",
-    "name_tr": "KURBAN BAYRAMI 4. Gün"
+    "date": "20-12-2029",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   },
   {
-    "date": "2029-05-14",
-    "name_tr": "HİCRİ YILBAŞI"
+    "date": "23-04-2029",
+    "name_tr": "KURBAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2029-05-23",
-    "name_tr": "AŞURE GÜNÜ"
+    "date": "23-05-2029",
+    "name_tr": "AŞURE GÜNÜ",
+    "name_de": "Aschura-Tag"
   },
   {
-    "date": "2029-07-23",
-    "name_tr": "MEVLİT KANDİLİ"
+    "date": "23-07-2029",
+    "name_tr": "MEVLİT KANDİLİ",
+    "name_de": "MEVLİT KANDİLİ"
   },
   {
-    "date": "2029-11-07",
-    "name_tr": "ÜÇ AYLARIN BAŞLANGICI"
+    "date": "24-04-2029",
+    "name_tr": "KURBAN BAYRAMI 1. Gün",
+    "name_de": "Opferfest 1. Tag"
   },
   {
-    "date": "2029-11-08",
-    "name_tr": "REGAİB KANDİLİ"
+    "date": "25-04-2029",
+    "name_tr": "KURBAN BAYRAMI 2. Gün",
+    "name_de": "Opferfest 2. Tag"
   },
   {
-    "date": "2029-12-02",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "26-04-2029",
+    "name_tr": "KURBAN BAYRAMI 3. Gün",
+    "name_de": "Opferfest 3. Tag"
   },
   {
-    "date": "2029-12-20",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "27-04-2029",
+    "name_tr": "KURBAN BAYRAMI 4. Gün",
+    "name_de": "Opferfest 4. Tag"
   }
 ]

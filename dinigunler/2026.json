@@ -1,74 +1,92 @@
 [
   {
-    "date": "2026-01-15",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "02-02-2026",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   },
   {
-    "date": "2026-02-02",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "10-12-2026",
+    "name_tr": "REGAİB KANDİLİ",
+    "name_de": "Regaib-Nacht"
   },
   {
-    "date": "2026-02-19",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "10-12-2026",
+    "name_tr": "ÜÇ AYLARIN BAŞLANGICI",
+    "name_de": "Beginn der drei heiligen Monate"
   },
   {
-    "date": "2026-03-16",
-    "name_tr": "KADİR GECESİ"
+    "date": "15-01-2026",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2026-03-19",
-    "name_tr": "AREFE"
+    "date": "16-03-2026",
+    "name_tr": "KADİR GECESİ",
+    "name_de": "Nacht der Bestimmung (Lailat al-Qadr)"
   },
   {
-    "date": "2026-03-20",
-    "name_tr": "RAMAZAN BAYRAMI (1. Gün)"
+    "date": "16-06-2026",
+    "name_tr": "HİCRİ YILBAŞI",
+    "name_de": "Islamisches Neujahr (Hidschri-Neujahr)"
   },
   {
-    "date": "2026-03-21",
-    "name_tr": "RAMAZAN BAYRAMI (2. Gün)"
+    "date": "19-02-2026",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2026-03-22",
-    "name_tr": "RAMAZAN BAYRAMI (3. Gün)"
+    "date": "19-03-2026",
+    "name_tr": "AREFE",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2026-05-26",
-    "name_tr": "AREFE"
+    "date": "20-03-2026",
+    "name_tr": "RAMAZAN BAYRAMI (1. Gün)",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2026-05-27",
-    "name_tr": "KURBAN BAYRAMI (1. Gün)"
+    "date": "21-03-2026",
+    "name_tr": "RAMAZAN BAYRAMI (2. Gün)",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2026-05-28",
-    "name_tr": "KURBAN BAYRAMI (2. Gün)"
+    "date": "22-03-2026",
+    "name_tr": "RAMAZAN BAYRAMI (3. Gün)",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2026-05-29",
-    "name_tr": "KURBAN BAYRAMI (3. Gün)"
+    "date": "24-08-2026",
+    "name_tr": "MEVLİD KANDİLİ",
+    "name_de": "Mawlid (Geburt des Propheten)"
   },
   {
-    "date": "2026-05-30",
-    "name_tr": "KURBAN BAYRAMI (4. Gün)"
+    "date": "25-06-2026",
+    "name_tr": "AŞURE GÜNÜ",
+    "name_de": "Aschura-Tag"
   },
   {
-    "date": "2026-06-16",
-    "name_tr": "HİCRİ YILBAŞI"
+    "date": "26-05-2026",
+    "name_tr": "AREFE",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2026-06-25",
-    "name_tr": "AŞURE GÜNÜ"
+    "date": "27-05-2026",
+    "name_tr": "KURBAN BAYRAMI (1. Gün)",
+    "name_de": "Opferfest 1. Tag"
   },
   {
-    "date": "2026-08-24",
-    "name_tr": "MEVLİD KANDİLİ"
+    "date": "28-05-2026",
+    "name_tr": "KURBAN BAYRAMI (2. Gün)",
+    "name_de": "Opferfest 2. Tag"
   },
   {
-    "date": "2026-12-10",
-    "name_tr": "REGAİB KANDİLİ"
+    "date": "29-05-2026",
+    "name_tr": "KURBAN BAYRAMI (3. Gün)",
+    "name_de": "Opferfest 3. Tag"
   },
   {
-    "date": "2026-12-10",
-    "name_tr": "ÜÇ AYLARIN BAŞLANGICI"
+    "date": "30-05-2026",
+    "name_tr": "KURBAN BAYRAMI (4. Gün)",
+    "name_de": "Opferfest 4. Tag"
   }
 ]

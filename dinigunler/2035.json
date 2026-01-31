@@ -1,74 +1,92 @@
 [
   {
-    "date": "2035-02-17",
-    "name_tr": "KURBAN BAY. AREFESİ"
+    "date": "01-11-2035",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2035-02-18",
-    "name_tr": "KURBAN BAYRAMI 1. Gün"
+    "date": "01-12-2035",
+    "name_tr": "RAMAZAN BAYRAMI 1. Gün",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2035-02-19",
-    "name_tr": "KURBAN BAYRAMI 2. Gün"
+    "date": "02-12-2035",
+    "name_tr": "RAMAZAN BAYRAMI 2. Gün",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2035-02-20",
-    "name_tr": "KURBAN BAYRAMI 3. Gün"
+    "date": "03-09-2035",
+    "name_tr": "ÜÇ AYLARIN BAŞLANGICI",
+    "name_de": "Beginn der drei heiligen Monate"
   },
   {
-    "date": "2035-02-21",
-    "name_tr": "KURBAN BAYRAMI 4. Gün"
+    "date": "03-12-2035",
+    "name_tr": "RAMAZAN BAYRAMI 3. Gün",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2035-03-11",
-    "name_tr": "HİCRİ YILBAŞI"
+    "date": "06-09-2035",
+    "name_tr": "REGAİB KANDİLİ",
+    "name_de": "Regaib-Nacht"
   },
   {
-    "date": "2035-03-20",
-    "name_tr": "AŞURE GÜNÜ"
+    "date": "11-03-2035",
+    "name_tr": "HİCRİ YILBAŞI",
+    "name_de": "Islamisches Neujahr (Hidschri-Neujahr)"
   },
   {
-    "date": "2035-05-19",
-    "name_tr": "MEVLİT KANDİLİ"
+    "date": "16-10-2035",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   },
   {
-    "date": "2035-09-03",
-    "name_tr": "ÜÇ AYLARIN BAŞLANGICI"
+    "date": "17-02-2035",
+    "name_tr": "KURBAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2035-09-06",
-    "name_tr": "REGAİB KANDİLİ"
+    "date": "18-02-2035",
+    "name_tr": "KURBAN BAYRAMI 1. Gün",
+    "name_de": "Opferfest 1. Tag"
   },
   {
-    "date": "2035-09-28",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "19-02-2035",
+    "name_tr": "KURBAN BAYRAMI 2. Gün",
+    "name_de": "Opferfest 2. Tag"
   },
   {
-    "date": "2035-10-16",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "19-05-2035",
+    "name_tr": "MEVLİT KANDİLİ",
+    "name_de": "MEVLİT KANDİLİ"
   },
   {
-    "date": "2035-11-01",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "20-02-2035",
+    "name_tr": "KURBAN BAYRAMI 3. Gün",
+    "name_de": "Opferfest 3. Tag"
   },
   {
-    "date": "2035-11-26",
-    "name_tr": "KADİR GECESİ"
+    "date": "20-03-2035",
+    "name_tr": "AŞURE GÜNÜ",
+    "name_de": "Aschura-Tag"
   },
   {
-    "date": "2035-11-30",
-    "name_tr": "RAMAZAN BAY. AREFESİ"
+    "date": "21-02-2035",
+    "name_tr": "KURBAN BAYRAMI 4. Gün",
+    "name_de": "Opferfest 4. Tag"
   },
   {
-    "date": "2035-12-01",
-    "name_tr": "RAMAZAN BAYRAMI 1. Gün"
+    "date": "26-11-2035",
+    "name_tr": "KADİR GECESİ",
+    "name_de": "Nacht der Bestimmung (Lailat al-Qadr)"
   },
   {
-    "date": "2035-12-02",
-    "name_tr": "RAMAZAN BAYRAMI 2. Gün"
+    "date": "28-09-2035",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2035-12-03",
-    "name_tr": "RAMAZAN BAYRAMI 3. Gün"
+    "date": "30-11-2035",
+    "name_tr": "RAMAZAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   }
 ]

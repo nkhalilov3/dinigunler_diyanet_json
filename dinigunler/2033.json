@@ -1,90 +1,112 @@
 [
   {
-    "date": "2033-01-01",
-    "name_tr": "RAMAZAN BAY. AREFESİ"
+    "date": "01-01-2033",
+    "name_tr": "RAMAZAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2033-01-02",
-    "name_tr": "RAMAZAN BAYRAMI 1. Gün"
+    "date": "01-04-2033",
+    "name_tr": "HİCRİ YILBAŞI",
+    "name_de": "Islamisches Neujahr (Hidschri-Neujahr)"
   },
   {
-    "date": "2033-01-03",
-    "name_tr": "RAMAZAN BAYRAMI 2. Gün"
+    "date": "02-01-2033",
+    "name_tr": "RAMAZAN BAYRAMI 1. Gün",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2033-01-04",
-    "name_tr": "RAMAZAN BAYRAMI 3. Gün"
+    "date": "03-01-2033",
+    "name_tr": "RAMAZAN BAYRAMI 2. Gün",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2033-03-10",
-    "name_tr": "KURBAN BAY. AREFESİ"
+    "date": "04-01-2033",
+    "name_tr": "RAMAZAN BAYRAMI 3. Gün",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2033-03-11",
-    "name_tr": "KURBAN BAYRAMI 1. Gün"
+    "date": "06-11-2033",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   },
   {
-    "date": "2033-03-12",
-    "name_tr": "KURBAN BAYRAMI 2. Gün"
+    "date": "09-06-2033",
+    "name_tr": "MEVLİT KANDİLİ",
+    "name_de": "MEVLİT KANDİLİ"
   },
   {
-    "date": "2033-03-13",
-    "name_tr": "KURBAN BAYRAMI 3. Gün"
+    "date": "10-03-2033",
+    "name_tr": "KURBAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2033-03-14",
-    "name_tr": "KURBAN BAYRAMI 4. Gün"
+    "date": "10-04-2033",
+    "name_tr": "AŞURE GÜNÜ",
+    "name_de": "Aschura-Tag"
   },
   {
-    "date": "2033-04-01",
-    "name_tr": "HİCRİ YILBAŞI"
+    "date": "11-03-2033",
+    "name_tr": "KURBAN BAYRAMI 1. Gün",
+    "name_de": "Opferfest 1. Tag"
   },
   {
-    "date": "2033-04-10",
-    "name_tr": "AŞURE GÜNÜ"
+    "date": "12-03-2033",
+    "name_tr": "KURBAN BAYRAMI 2. Gün",
+    "name_de": "Opferfest 2. Tag"
   },
   {
-    "date": "2033-06-09",
-    "name_tr": "MEVLİT KANDİLİ"
+    "date": "13-03-2033",
+    "name_tr": "KURBAN BAYRAMI 3. Gün",
+    "name_de": "Opferfest 3. Tag"
   },
   {
-    "date": "2033-09-25",
-    "name_tr": "ÜÇ AYLARIN BAŞLANGICI"
+    "date": "14-03-2033",
+    "name_tr": "KURBAN BAYRAMI 4. Gün",
+    "name_de": "Opferfest 4. Tag"
   },
   {
-    "date": "2033-09-29",
-    "name_tr": "REGAİB KANDİLİ"
+    "date": "18-12-2033",
+    "name_tr": "KADİR GECESİ",
+    "name_de": "Nacht der Bestimmung (Lailat al-Qadr)"
   },
   {
-    "date": "2033-10-20",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "20-10-2033",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2033-11-06",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "22-12-2033",
+    "name_tr": "RAMAZAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2033-11-23",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "23-11-2033",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2033-12-18",
-    "name_tr": "KADİR GECESİ"
+    "date": "23-12-2033",
+    "name_tr": "RAMAZAN BAYRAMI 1. Gün",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2033-12-22",
-    "name_tr": "RAMAZAN BAY. AREFESİ"
+    "date": "24-12-2033",
+    "name_tr": "RAMAZAN BAYRAMI 2. Gün",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2033-12-23",
-    "name_tr": "RAMAZAN BAYRAMI 1. Gün"
+    "date": "25-09-2033",
+    "name_tr": "ÜÇ AYLARIN BAŞLANGICI",
+    "name_de": "Beginn der drei heiligen Monate"
   },
   {
-    "date": "2033-12-24",
-    "name_tr": "RAMAZAN BAYRAMI 2. Gün"
+    "date": "25-12-2033",
+    "name_tr": "RAMAZAN BAYRAMI 3. Gün",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2033-12-25",
-    "name_tr": "RAMAZAN BAYRAMI 3. Gün"
+    "date": "29-09-2033",
+    "name_tr": "REGAİB KANDİLİ",
+    "name_de": "Regaib-Nacht"
   }
 ]

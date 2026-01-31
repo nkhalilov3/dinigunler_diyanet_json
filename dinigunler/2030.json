@@ -1,74 +1,92 @@
 [
   {
-    "date": "2030-01-05",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "03-02-2030",
+    "name_tr": "RAMAZAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2030-01-30",
-    "name_tr": "KADİR GECESİ"
+    "date": "03-05-2030",
+    "name_tr": "HİCRİ YILBAŞI",
+    "name_de": "Islamisches Neujahr (Hidschri-Neujahr)"
   },
   {
-    "date": "2030-02-03",
-    "name_tr": "RAMAZAN BAY. AREFESİ"
+    "date": "04-02-2030",
+    "name_tr": "RAMAZAN BAYRAMI 1. Gün",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2030-02-04",
-    "name_tr": "RAMAZAN BAYRAMI 1. Gün"
+    "date": "05-01-2030",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2030-02-05",
-    "name_tr": "RAMAZAN BAYRAMI 2. Gün"
+    "date": "05-02-2030",
+    "name_tr": "RAMAZAN BAYRAMI 2. Gün",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2030-02-06",
-    "name_tr": "RAMAZAN BAYRAMI 3. Gün"
+    "date": "06-02-2030",
+    "name_tr": "RAMAZAN BAYRAMI 3. Gün",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2030-04-12",
-    "name_tr": "KURBAN BAY. AREFESİ"
+    "date": "09-12-2030",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   },
   {
-    "date": "2030-04-13",
-    "name_tr": "KURBAN BAYRAMI 1. Gün"
+    "date": "12-04-2030",
+    "name_tr": "KURBAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2030-04-14",
-    "name_tr": "KURBAN BAYRAMI 2. Gün"
+    "date": "12-05-2030",
+    "name_tr": "AŞURE GÜNÜ",
+    "name_de": "Aschura-Tag"
   },
   {
-    "date": "2030-04-15",
-    "name_tr": "KURBAN BAYRAMI 3. Gün"
+    "date": "12-07-2030",
+    "name_tr": "MEVLİT KANDİLİ",
+    "name_de": "MEVLİT KANDİLİ"
   },
   {
-    "date": "2030-04-16",
-    "name_tr": "KURBAN BAYRAMI 4. Gün"
+    "date": "13-04-2030",
+    "name_tr": "KURBAN BAYRAMI 1. Gün",
+    "name_de": "Opferfest 1. Tag"
   },
   {
-    "date": "2030-05-03",
-    "name_tr": "HİCRİ YILBAŞI"
+    "date": "14-04-2030",
+    "name_tr": "KURBAN BAYRAMI 2. Gün",
+    "name_de": "Opferfest 2. Tag"
   },
   {
-    "date": "2030-05-12",
-    "name_tr": "AŞURE GÜNÜ"
+    "date": "15-04-2030",
+    "name_tr": "KURBAN BAYRAMI 3. Gün",
+    "name_de": "Opferfest 3. Tag"
   },
   {
-    "date": "2030-07-12",
-    "name_tr": "MEVLİT KANDİLİ"
+    "date": "16-04-2030",
+    "name_tr": "KURBAN BAYRAMI 4. Gün",
+    "name_de": "Opferfest 4. Tag"
   },
   {
-    "date": "2030-10-28",
-    "name_tr": "ÜÇ AYLARIN BAŞLANGICI"
+    "date": "22-11-2030",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2030-11-22",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "26-12-2030",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2030-12-09",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "28-10-2030",
+    "name_tr": "ÜÇ AYLARIN BAŞLANGICI",
+    "name_de": "Beginn der drei heiligen Monate"
   },
   {
-    "date": "2030-12-26",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "30-01-2030",
+    "name_tr": "KADİR GECESİ",
+    "name_de": "Nacht der Bestimmung (Lailat al-Qadr)"
   }
 ]

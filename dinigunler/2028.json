@@ -1,78 +1,97 @@
 [
   {
-    "date": "2028-01-11",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "02-08-2028",
+    "name_tr": "MEVLİT KANDİLİ",
+    "name_de": "MEVLİT KANDİLİ"
   },
   {
-    "date": "2028-01-28",
-    "name_tr": "RAMAZAN BAŞLANGICI"
+    "date": "03-06-2028",
+    "name_tr": "AŞURE GÜNÜ",
+    "name_de": "Aschura-Tag"
   },
   {
-    "date": "2028-02-22",
-    "name_tr": "KADİR GECESİ"
+    "date": "04-05-2028",
+    "name_tr": "KURBAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2028-02-25",
-    "name_tr": "RAMAZAN BAY. AREFESİ"
+    "date": "05-05-2028",
+    "name_tr": "KURBAN BAYRAMI 1. Gün",
+    "name_de": "Opferfest 1. Tag"
   },
   {
-    "date": "2028-02-26",
-    "name_tr": "RAMAZAN BAYRAMI 1. Gün"
+    "date": "06-05-2028",
+    "name_tr": "KURBAN BAYRAMI 2. Gün",
+    "name_de": "Opferfest 2. Tag"
   },
   {
-    "date": "2028-02-27",
-    "name_tr": "RAMAZAN BAYRAMI 2. Gün"
+    "date": "07-05-2028",
+    "name_tr": "KURBAN BAYRAMI 3. Gün",
+    "name_de": "Opferfest 3. Tag"
   },
   {
-    "date": "2028-02-28",
-    "name_tr": "RAMAZAN BAYRAMI 3. Gün"
+    "date": "08-05-2028",
+    "name_tr": "KURBAN BAYRAMI 4. Gün",
+    "name_de": "Opferfest 4. Tag"
   },
   {
-    "date": "2028-05-04",
-    "name_tr": "KURBAN BAY. AREFESİ"
+    "date": "11-01-2028",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   },
   {
-    "date": "2028-05-05",
-    "name_tr": "KURBAN BAYRAMI 1. Gün"
+    "date": "13-12-2028",
+    "name_tr": "MİRAC KANDİLİ",
+    "name_de": "Miraj-Nacht"
   },
   {
-    "date": "2028-05-06",
-    "name_tr": "KURBAN BAYRAMI 2. Gün"
+    "date": "18-11-2028",
+    "name_tr": "ÜÇ AYLARIN BAŞLANGICI",
+    "name_de": "Beginn der drei heiligen Monate"
   },
   {
-    "date": "2028-05-07",
-    "name_tr": "KURBAN BAYRAMI 3. Gün"
+    "date": "22-02-2028",
+    "name_tr": "KADİR GECESİ",
+    "name_de": "Nacht der Bestimmung (Lailat al-Qadr)"
   },
   {
-    "date": "2028-05-08",
-    "name_tr": "KURBAN BAYRAMI 4. Gün"
+    "date": "23-11-2028",
+    "name_tr": "REGAİB KANDİLİ",
+    "name_de": "Regaib-Nacht"
   },
   {
-    "date": "2028-05-25",
-    "name_tr": "HİCRİ YILBAŞI"
+    "date": "25-02-2028",
+    "name_tr": "RAMAZAN BAY. AREFESİ",
+    "name_de": "Arefe (Vorabend des Festes)"
   },
   {
-    "date": "2028-06-03",
-    "name_tr": "AŞURE GÜNÜ"
+    "date": "25-05-2028",
+    "name_tr": "HİCRİ YILBAŞI",
+    "name_de": "Islamisches Neujahr (Hidschri-Neujahr)"
   },
   {
-    "date": "2028-08-02",
-    "name_tr": "MEVLİT KANDİLİ"
+    "date": "26-02-2028",
+    "name_tr": "RAMAZAN BAYRAMI 1. Gün",
+    "name_de": "Zuckerfest 1. Tag"
   },
   {
-    "date": "2028-11-18",
-    "name_tr": "ÜÇ AYLARIN BAŞLANGICI"
+    "date": "27-02-2028",
+    "name_tr": "RAMAZAN BAYRAMI 2. Gün",
+    "name_de": "Zuckerfest 2. Tag"
   },
   {
-    "date": "2028-11-23",
-    "name_tr": "REGAİB KANDİLİ"
+    "date": "28-01-2028",
+    "name_tr": "RAMAZAN BAŞLANGICI",
+    "name_de": "Beginn des Ramadan"
   },
   {
-    "date": "2028-12-13",
-    "name_tr": "MİRAC KANDİLİ"
+    "date": "28-02-2028",
+    "name_tr": "RAMAZAN BAYRAMI 3. Gün",
+    "name_de": "Zuckerfest 3. Tag"
   },
   {
-    "date": "2028-12-30",
-    "name_tr": "BERAT KANDİLİ"
+    "date": "30-12-2028",
+    "name_tr": "BERAT KANDİLİ",
+    "name_de": "Nacht der Vergebung (Berat-Nacht)"
   }
 ]
