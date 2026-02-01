@@ -1,38 +1,31 @@
-# Dini Günler – Automatic JSON API (Diyanet)
+# Dini Günler – JSON API (Diyanet)
 
-Automatisch gepflegte JSON-Daten für islamische religiöse Tage (Dini Günler),
+Statische, automatisch gepflegte JSON-Daten für islamische religiöse Tage  
 bereitgestellt über GitHub Pages.
 
-**Autor:** Nijat Khalilov  
-**Status:** Stabil / vollautomatisch
-
----
-
-## 🌐 Sprachen / Languages
-- [Deutsch](#deutsch)
-- [Türkçe](#türkçe)
+Autor: Nijat Khalilov
 
 ---
 
 ## Deutsch
 
-### Überblick
+### Zweck
 
-Dieses Repository stellt **Dini Günler** als **statische JSON-API** bereit.
-Die Daten werden regelmäßig aus den öffentlich zugänglichen Seiten der
-**Diyanet İşleri Başkanlığı** extrahiert und automatisch aktualisiert.
+Dieses Repository stellt **Dini Günler** als **JSON-Dateien** bereit.
+Die Daten werden automatisch aus öffentlich zugänglichen Seiten der
+**Diyanet İşleri Başkanlığı** extrahiert und regelmäßig aktualisiert.
 
-Das Projekt ist besonders für **Embedded-Systeme (z. B. ESP32-Gebetsuhren)**,
-Kalender-Anwendungen und Informationsdisplays geeignet.
+Gedacht für Clients, die **ohne eigenes Backend** arbeiten
+(z. B. ESP32-Gebetsuhren, Kalender, Displays).
 
 ---
 
-### Datenzugriff
+### Zugriff
 
-**Index (verfügbare Jahre):**  
+Index (verfügbare Jahre):  
 https://nkhalilov3.github.io/dinigunler_diyanet_json/dinigunler/index.json
 
-**Jahresdatei (Beispiel):**  
+Jahresdatei (Beispiel):  
 https://nkhalilov3.github.io/dinigunler_diyanet_json/dinigunler/2026.json
 
 ---
