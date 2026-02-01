@@ -1,10 +1,8 @@
 # Dini Günler – JSON API (Diyanet)
-# Dini Günler – JSON API (Diyanet)
 
 Statische, automatisch gepflegte JSON-Daten für islamische religiöse Tage  
 İslami dini günler için otomatik olarak güncellenen statik JSON verileri
 
-Autor / Yazar: Nijat Khalilov
 
 ---
 
